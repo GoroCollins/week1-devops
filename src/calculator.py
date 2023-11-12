@@ -16,7 +16,10 @@ def mul(a, b):
 
 # Division
 def div(a, b):
-    return a / b
+    try:
+        return a / b 
+    except ZeroDivisionError:
+        return f'Cannot divide by zero'
 
 
 if __name__ == "__main__":
@@ -34,4 +37,8 @@ if __name__ == "__main__":
     print(f"Sum of {a} and {b} is {sum_result}")
     print(f"Difference of {a} and {b} is {diff_result}")
     print(f"Product of {a} and {b} is {product_result}")
-    print(f"Division of {a} and {b} is {div_result}")
+    if isinstance(div_result, (int, float)):
+        print(f"Division of {a} and {b} is {div_result}")
+    else:
+        print(f"Error:{div_result}")
+    
